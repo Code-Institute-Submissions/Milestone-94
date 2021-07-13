@@ -1,27 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-    {% for book in books %}
-        {{ book.category_name}}<br>
-        {{ book.book_name}}<br>
-        {{ book.book_author}}<br>
-        {{ book.book_length}}<br>
-        {{ book.book_publication_date}}<br>
-        {{ book.book_description}}<br>
-    {% endfor %}
-
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <h5 class="card-title"><a href="#" class="card-link">Card Title</a></h5>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Author</li>
-            <li class="list-group-item">category</li>
-            <li class="list-group-item">pgs</li>
-        </ul>
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
+        {% for book in books %}
+            <img src="..." class="card-img-top" alt="...">
+            <h5 class="card-title text-center"><a href="#" class="card-link">{{ book.book_name}}</a></h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Author : {{ book.book_author}}</li>
+                <li class="list-group-item">Category : {{ book.category_name}}</li>
+                <li class="list-group-item">Publication Date : {{ book.book_publication_date}}</li>
+                <li class="list-group-item">Book Length : {{ book.book_length}}</li>
+            </ul>
+            <div class="card-body">
+                <p class="card-text">{{ book.book_description}}</p>
+            </div>
+        {% endfor %}
     </div>
 
 {% endblock %}
