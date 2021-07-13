@@ -62,8 +62,22 @@
           </nav>
     </header>
 
-    {% block content %}
-    {% endblock %}
+    <section>
+      <!-- flash messages -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="row flashes">
+              <h4 class="text-center">{{ message }}</h4>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </section>
+    <main class="container">
+      {% block content %}
+      {% endblock %}
+    </main>
 
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
