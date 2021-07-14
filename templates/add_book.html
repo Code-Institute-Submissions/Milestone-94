@@ -4,7 +4,7 @@
     <h3 class="text-center">Add Book</h3>
     <div class="card">
         <div class="card-body">
-          <form method="POST" action="">
+          <form method="POST" action="{{ url_for('add_book') }}">
             <!-- categorgy-->
             <label for="category_name">Category</label>
             <select class="form-select" id="category_name" name="category_name" aria-label="Default select example" required>
@@ -16,8 +16,8 @@
             <!-- book image url-->
             <div class="mb-3">
               <i class=""></i>
-              <label for="url" class="form-label">Url for book cover image</label>
-              <input type="url" class="form-control" id="url" name="url" required>
+              <label for="book_url" class="form-label">Url for book cover image</label>
+              <input type="url" class="form-control" id="book_url" name="book_url" required>
             </div>
             <!-- book title-->
             <div class="mb-3">
@@ -41,13 +41,13 @@
             <div class="mb-3">
                 <i class=""></i>
                 <label for="book_description" class="form-label">Book Description</label>
-                <textarea class="form-control" name="book_description" id="book_description" rows="3" required></textarea>
+                <textarea class="form-control" name="book_description" id="book_description" rows="5" required></textarea>
             </div>
             <!-- review -->
             <div class="mb-3">
               <i class=""></i>
               <label for="book_review" class="form-label">Book Review</label>
-              <textarea class="form-control" name="book_review" id="book_review" rows="3" required></textarea>
+              <textarea class="form-control" name="book_review" id="book_review" rows="5" required></textarea>
             </div>
             <!-- book rating -->
             <div class="mb-3">
@@ -55,7 +55,6 @@
               <label for="book_rate" class="form-label">Rate the book!</label>
               <input type="range" class="form-range" name="book_rate" id="book_rate">
             </div>
-
             <!-- submit button-->
             <button type="submit" class="btn btn-primary">Submit
               <i class="fas fa-sign-in-alt"></i>
