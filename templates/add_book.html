@@ -7,8 +7,8 @@
           <form method="POST" action="{{ url_for('add_book') }}">
             <!-- categorgy-->
             <label for="category_name">Category</label>
-            <select class="form-select" id="category_name" name="category_name" aria-label="Default select example" required>
-              <option selected>Choose Category</option>
+            <select class="custom-select validate" id="category_name" name="category_name" aria-label="Default select example" required>
+              <option value="" disabled selected>Choose Category</option>
               {% for category in categories %}
                 <option value="{{ category.category_name }}">{{ category.category_name }}</option> 
               {% endfor %}
