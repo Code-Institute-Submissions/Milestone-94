@@ -5,6 +5,14 @@
     <div class="card">
         <div class="card-body">
           <form method="POST" action="">
+            <!-- categorgy-->
+            <label for="category_name">Category</label>
+            <select class="form-select" id="category_name" name="category_name" aria-label="Default select example" required>
+              <option selected>Choose Category</option>
+              {% for category in categories %}
+                <option value="{{ category.category_name }}">{{ category.category_name }}</option> 
+              {% endfor %}
+            </select><br>
             <!-- book image url-->
             <div class="mb-3">
               <i class=""></i>
@@ -23,9 +31,6 @@
               <label for="book_author" class="form-label">Author</label>
               <input type="text" class="form-control" id="book_author" name="book_author" required>
             </div>
-            <!-- categorgy-->
-            
-
             <!-- book length -->
             <div class="mb-3">
                 <i class=""></i>
