@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -9,7 +9,7 @@ if os.path.exists("env.py"):
     import env
 
 
-app = Flask(__name__)   
+app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -24,13 +24,22 @@ def get_books():
     return render_template("books.html", books=books)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    books = list(mongo.db.books.find({"$text": {"$search": query}}))
+    if len(books) == 0:
+        flash("No Results Found")
+
+    return render_template("books.html", books=books)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
@@ -44,7 +53,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))   
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 
@@ -57,13 +66,12 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+            if check_password_hash(existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -81,7 +89,7 @@ def login():
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     if session["user"]:
         return render_template("profile.html", username=username)
 
@@ -134,7 +142,7 @@ def edit_book(book_id):
             "book_rate": request.form.get("book_rate"),
             "uploaded_by": session["user"]
         }
-        mongo.db.books.update({"_id": ObjectId(book_id)},submit)
+        mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
         flash("Book Successfully Updated")
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
@@ -144,7 +152,7 @@ def edit_book(book_id):
 
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
-    mongo.db.books.remove({ "_id": ObjectId(book_id)})
+    mongo.db.books.remove({"_id": ObjectId(book_id)})
     flash("Book Successfully Deleted")
     return redirect(url_for("get_books"))
 
