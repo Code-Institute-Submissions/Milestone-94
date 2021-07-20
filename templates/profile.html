@@ -11,6 +11,32 @@
       </div>
     </div>
   </div>
+  
+  {% for book in books %}
+    {% if session.user|lower == book.uploaded_by|lower %}
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <img src="{{ book.book_url}}" class="card-img-top" alt="...">
+            <h5 class="card-title text-center"><a href="#" class="card-link">{{ book.book_name}}</a></h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Author : {{ book.book_author}}</li>
+              <li class="list-group-item">Category : {{ book.category_name}}</li>
+              <li class="list-group-item">Publication Date : {{ book.book_publication_date}}</li>
+              <li class="list-group-item">Book Length : {{ book.book_length}}</li>
+            </ul>
+            <div class="card-body">
+              <p class="card-text">Description : {{ book.book_description | truncate(100, true)}}</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Review : {{ book.book_review | truncate(100, true)}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+ 
 
   
 {% endblock %}

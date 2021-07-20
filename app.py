@@ -17,7 +17,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 @app.route("/")
+
+
 @app.route("/get_books")
 def get_books():
     books = list(mongo.db.books.find())
@@ -91,7 +94,8 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        books = list(mongo.db.books.find())
+        return render_template("profile.html", username=username, books=books)
 
     return redirect(url_for("login"))
 
