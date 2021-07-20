@@ -5,3 +5,20 @@
 .btn-sm {
     margin: 5px;
 }
+
+.navbar, .dropdown-menu {
+    background-color: #4c828a !important; 
+}
+
+.nav-link, .dropdown-item {
+    color: #d4af37 !important;
+}
+
+.navbar-brand {
+    color: #d4af37 !important;
+    text-shadow: 1px 1px #d4af37;
+}
+
+.search-button .btn {
+    background-color: #d4af37 !important;
+}
