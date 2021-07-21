@@ -109,7 +109,9 @@ def profile(username):
 
     if session["user"]:
         books = list(mongo.db.books.find())
-        return render_template("profile.html", username=username, books=books)
+        uploaded = list(mongo.db.books.find({"uploaded_by": session["user"]}))
+        return render_template(
+            "profile.html", username=username, books=books, uploaded=uploaded)
 
     return redirect(url_for("login"))
 
@@ -171,6 +173,25 @@ def delete_book(book_id):
     mongo.db.books.remove({"_id": ObjectId(book_id)})
     flash("Book Successfully Deleted")
     return redirect(url_for("home"))
+
+
+# one book
+@app.route("/single_book/<book_id>")
+def single_book(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+
+    return render_template(
+        "single_book.html", book=book)
+
+
+# category pages
+@app.route("/category")
+def category():
+    categories = request.args.get("categories")
+    books = mongo.db.books.find()
+
+    return render_template(
+        "category.html", books=books, categories=categories)
 
 
 if __name__ == "__main__":

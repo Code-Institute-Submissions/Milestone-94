@@ -31,10 +31,12 @@
                 Categories
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Sci-fi</a></li>
-                <li><a class="dropdown-item" href="#">Fiction</a></li>
+                <li><a class="dropdown-item" href="{{ url_for( 'category', categories = 'sci-fi') }}">Sci-fi</a></li>
+                <li><a class="dropdown-item" href="{{ url_for( 'category', categories = 'fantasy') }}">Fantasy</a></li>
+                <li><a class="dropdown-item" href="{{ url_for( 'category', categories = 'classic') }}">Classics</a></li>
+                <li><a class="dropdown-item" href="{{ url_for( 'category', categories = 'fiction') }}">Fiction</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Non-fiction</a></li>
+                <li><a class="dropdown-item" href="{{ url_for( 'category', categories = 'non-fiction') }}">Non-fiction</a></li>
               </ul>
             </li>
             {% if session.user %}
@@ -82,6 +84,12 @@
     {% block content %}
     {% endblock %}
   </main>
+
+  <footer>
+    <div>
+      <span>Copyright 2021</span>
+    </div>
+  </footer>
 
   <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"

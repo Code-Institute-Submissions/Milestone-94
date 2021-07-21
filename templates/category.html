@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for book in books %}
+            {% if categories == book.category_name|lower %}
+                {% include "books.html" %}
+            {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
