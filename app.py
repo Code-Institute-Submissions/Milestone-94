@@ -18,13 +18,27 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Home
 @app.route("/")
-
-
-@app.route("/get_books")
-def get_books():
+@app.route("/home/")
+def home():
     books = list(mongo.db.books.find())
-    return render_template("books.html", books=books)
+    """To display 3 books from the category"""
+    sci_fi = mongo.db.books.find(
+        {"category_name": "Sci-fi"}).sort("_id", -1).limit(3)
+    fiction = mongo.db.books.find(
+        {"category_name": "Fiction"}).sort("_id", -1).limit(3)
+    non_fiction = mongo.db.books.find(
+        {"category_name": "Non-fiction"}).sort("_id", -1).limit(3)
+    fantasy = mongo.db.books.find(
+        {"category_name": "Fantasy"}).sort("_id", -1).limit(3)
+    classic = mongo.db.books.find(
+        {"category_name": "Classic"}).sort("_id", -1).limit(3)
+
+    return render_template(
+        "home.html",
+        books=books, sci_fi=sci_fi, fiction=fiction,
+        non_fiction=non_fiction, fantasy=fantasy, classic=classic)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -34,7 +48,7 @@ def search():
     if len(books) == 0:
         flash("No Results Found")
 
-    return render_template("books.html", books=books)
+    return render_template("home.html", books=books)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -116,7 +130,6 @@ def add_book():
             "book_name": request.form.get("book_name"),
             "book_author": request.form.get("book_author"),
             "book_length": request.form.get("book_length"),
-            # "book_publication_date": request.form.get("book_publication_date"),
             "book_description": request.form.get("book_description"),
             "book_url": request.form.get("book_url"),
             "book_review": request.form.get("book_review"),
@@ -125,7 +138,7 @@ def add_book():
         }
         mongo.db.books.insert_one(book)
         flash("Book Successfully Added")
-        return redirect(url_for("get_books"))
+        return redirect(url_for("home"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_book.html", categories=categories)
@@ -139,7 +152,6 @@ def edit_book(book_id):
             "book_name": request.form.get("book_name"),
             "book_author": request.form.get("book_author"),
             "book_length": request.form.get("book_length"),
-            # "book_publication_date": request.form.get("book_publication_date"),
             "book_description": request.form.get("book_description"),
             "book_url": request.form.get("book_url"),
             "book_review": request.form.get("book_review"),
@@ -158,7 +170,7 @@ def edit_book(book_id):
 def delete_book(book_id):
     mongo.db.books.remove({"_id": ObjectId(book_id)})
     flash("Book Successfully Deleted")
-    return redirect(url_for("get_books"))
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":

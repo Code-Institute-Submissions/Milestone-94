@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!--Sci-fi-->
+    <section class="container-fluid">
+        <div class="container">
+            <div class="section">
+                <a href="#"><h4 class="text-center text-md-left">Sci-fi books!</h4></a>
+                <p>Newest uploads in the sci-fi genre.</p>
+            </div>
+            <div class="row mt-5">
+                {% for book in sci_fi %}
+                <!--Using the include statement to include books.html template-->
+                    {% include "books.html" %}
+                {% endfor %}
+        </div>
+    </div>
+    </section>
+
+    <!--Classic-->
+    <section class="container-fluid">
+        <div class="container">
+            <div class="section">
+                <a href="#"><h4 class="text-center text-md-left">Classic books!</h4></a>
+                <p>Newest uploads in the classics genre.</p>
+            </div>
+            <div class="row mt-5">
+                {% for book in classic %}
+                    {% include "books.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!--Fantasy-->
+    <section class="container-fluid">
+        <div class="container">
+            <div class="section">
+                <a href="#"><h4 class="text-center text-md-left">Fantasy books!</h4></a>
+                <p>Newest uploads in the fantasy genre.</p>
+            </div>
+            <div class="row mt-5">
+                {% for book in fantasy %}
+                    {% include "books.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!--Fiction-->
+    <section class="container-fluid">
+        <div class="container">
+            <div class="section">
+                <a href="#"><h4 class="text-center text-md-left">Fiction books!</h4></a>
+                <p>Newest uploads in the fiction genre.</p>
+            </div>
+            <div class="row mt-5">
+                {% for book in fiction %}
+                    {% include "books.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!--Non-fiction-->
+    <section class="container-fluid">
+        <div class="container">
+            <div class="section">
+                <a href="#"><h4 class="text-center text-md-left">Non-fiction books!</h4></a>
+                <p>Newest uploads in the non-fiction genre.</p>
+            </div>
+            <div class="row mt-5">
+                {% for book in non_fiction %}
+                    {% include "books.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

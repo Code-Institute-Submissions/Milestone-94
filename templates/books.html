@@ -1,24 +1,18 @@
-{% extends "base.html" %}
-{% block content %}
-
-    <div class="card" style="width: 18rem;">
-        {% for book in books %}
-            {% if session.user|lower == book.uploaded_by|lower %}
-                <a class="btn btn-primary btn-sm" href="{{ url_for('delete_book', book_id=book._id) }}" role="button">Delete</a>
-                <a class="btn btn-primary btn-sm" href="{{ url_for('edit_book', book_id=book._id) }}" role="button">Edit</a>
-            {% endif %}
-            <img src="{{ book.book_url}}" class="card-img-top" alt="...">
-            <h5 class="card-title text-center"><a href="#" class="card-link">{{ book.book_name}}</a></h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Author : {{ book.book_author}}</li>
-                <li class="list-group-item">Category : {{ book.category_name}}</li>
-                <li class="list-group-item">Publication Date : {{ book.book_publication_date}}</li>
-                <li class="list-group-item">Book Length : {{ book.book_length}}</li>
-            </ul>
-            <div class="card-body">
-                <p class="card-text">Description : {{ book.book_description | truncate(40, true)}}</p>
-            </div>
-        {% endfor %}
+<div class="card book-cards profile-cards" style="width: 18rem;">
+    {% if session.user|lower == book.uploaded_by|lower %}
+        <a class="btn btn-primary btn-sm" href="{{ url_for('delete_book', book_id=book._id) }}" role="button">Delete</a>
+        <a class="btn btn-primary btn-sm" href="{{ url_for('edit_book', book_id=book._id) }}" role="button">Edit</a>
+    {% endif %}
+    <img src="{{ book.book_url}}" class="card-img-top" alt="...">
+    <h5 class="card-title text-center"><a href="#" class="card-link">{{ book.book_name}}</a></h5>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Author : {{ book.book_author}}</li>
+        <li class="list-group-item">Category : {{ book.category_name}}</li>
+        <li class="list-group-item">Publication Date : {{ book.book_publication_date}}</li>
+        <li class="list-group-item">Book Length : {{ book.book_length}}</li>
+    </ul>
+    <div class="card-body">
+        <p class="card-text">Description : {{ book.book_description | truncate(40, true)}}</p>
     </div>
-
-{% endblock %}
+</div>
+   
