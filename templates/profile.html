@@ -10,9 +10,9 @@
 
   
   <div class="container-fluid">
-    {% if books|length == 0 %}
+    {% if uploaded|length == 0 %}
       <p class="text-center profile-text">You haven't uploaded any books yet. Why not upload one now?</p>
-      <a href="{{ url_for('add_book') }}">Add book</a>
+      <a href="{{ url_for('add_book') }}"><p class="text-center" id="add-book">Add book</p></a>
     {% else %}
       <p class="text-center profile-text">Here are your books!</p>
     {% endif %}
