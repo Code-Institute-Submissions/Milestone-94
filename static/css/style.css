@@ -1,3 +1,7 @@
+body {
+    background-color:#44cbe3;
+}
+
 .flashes h4 {
     line-height: 2;
 }
@@ -6,7 +10,7 @@
     margin: 5px;
 }
 
-.navbar, .dropdown-menu {
+.navbar, .dropdown-menu{
     background-color: #4c828a !important; 
 }
 
@@ -19,6 +23,50 @@
     text-shadow: 1px 1px #d4af37;
 }
 
-.search-button .btn {
+.btn {
     background-color: #d4af37 !important;
+}
+
+.book-cards, .list-group-item {
+    background-color: #4c828a;
+    color: #d4af37 !important;
+}
+
+.list-group-item, .card-body, .card-description{
+    padding: 1px !important;
+    border: 0 !important;
+}
+
+.profile-text {
+    font-weight: bold;
+    font-size: 1.6em;
+    color: #d4af37 !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 2em;
+    color: #d4af37 !important;
+    text-transform: capitalize;
+    text-shadow: 1px 1px #4c828a;
+    margin-top: 10px;
+}
+
+.book-cards {
+    width: 100%;
+    display: block;
+    margin: 5px;
+}
+
+.book-cards img {
+    display: block;
+    border-radius: 4px;
+    height: 460px;
+    width: 100%;
+    position: relative;
+    transition: all .3s ease;
+    z-index: 0;
+    object-fit: cover;
 }

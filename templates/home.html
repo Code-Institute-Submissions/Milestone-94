@@ -5,10 +5,10 @@
     <section class="container-fluid">
         <div class="container">
             <div class="section">
-                <a href="#"><h4 class="text-center text-md-left">Sci-fi books!</h4></a>
-                <p>Newest uploads in the sci-fi genre.</p>
+                <a href="#"><h4 class="text-center text-md-left heading">Sci-fi books!</h4></a>
+                <p class="text-center profile-text">Newest uploads in the sci-fi genre.</p>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 {% for book in sci_fi %}
                 <!--Using the include statement to include books.html template-->
                     {% include "books.html" %}
@@ -21,10 +21,10 @@
     <section class="container-fluid">
         <div class="container">
             <div class="section">
-                <a href="#"><h4 class="text-center text-md-left">Classic books!</h4></a>
-                <p>Newest uploads in the classics genre.</p>
+                <a href="#"><h4 class="text-center text-md-left heading">Classic books!</h4></a>
+                <p class="text-center profile-text">Newest uploads in the classics genre.</p>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 {% for book in classic %}
                     {% include "books.html" %}
                 {% endfor %}
@@ -36,10 +36,10 @@
     <section class="container-fluid">
         <div class="container">
             <div class="section">
-                <a href="#"><h4 class="text-center text-md-left">Fantasy books!</h4></a>
-                <p>Newest uploads in the fantasy genre.</p>
+                <a href="#"><h4 class="text-center text-md-left heading">Fantasy books!</h4></a>
+                <p class="text-center profile-text">Newest uploads in the fantasy genre.</p>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 {% for book in fantasy %}
                     {% include "books.html" %}
                 {% endfor %}
@@ -51,10 +51,10 @@
     <section class="container-fluid">
         <div class="container">
             <div class="section">
-                <a href="#"><h4 class="text-center text-md-left">Fiction books!</h4></a>
-                <p>Newest uploads in the fiction genre.</p>
+                <a href="#"><h4 class="text-center text-md-left heading">Fiction books!</h4></a>
+                <p class="text-center profile-text">Newest uploads in the fiction genre.</p>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 {% for book in fiction %}
                     {% include "books.html" %}
                 {% endfor %}
@@ -66,10 +66,10 @@
     <section class="container-fluid">
         <div class="container">
             <div class="section">
-                <a href="#"><h4 class="text-center text-md-left">Non-fiction books!</h4></a>
-                <p>Newest uploads in the non-fiction genre.</p>
+                <a href="#"><h4 class="text-center text-md-left heading">Non-fiction books!</h4></a>
+                <p class="text-center profile-text">Newest uploads in the non-fiction genre.</p>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 {% for book in non_fiction %}
                     {% include "books.html" %}
                 {% endfor %}

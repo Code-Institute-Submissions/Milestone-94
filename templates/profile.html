@@ -2,41 +2,31 @@
 {% block content %}
 
 
-  <div class="card">
-    <div class="card-body">
-      <div>
-        <h3 class="text-center">
-          {{ username}}'s Profile'
-        </h3>
-      </div>
+  <div class="row">
+    <h3 class="text-center heading">
+      {{ username}}'s Profile
+    </h3>
+  </div>
+
+  
+  <div class="container-fluid">
+    {% if books|length == 0 %}
+      <p class="text-center profile-text">You haven't uploaded any books yet. Why not upload one now?</p>
+      <a href="{{ url_for('add_book') }}">Add book</a>
+    {% else %}
+      <p class="text-center profile-text">Here are your books!</p>
+    {% endif %}
+  </div>
+
+  <div class="container">
+    <div class="row">
+      {% for book in books %}
+        {% if session.user|lower == book.uploaded_by|lower %}
+          {% include "books.html" %}
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
-  
-  {% for book in books %}
-    {% if session.user|lower == book.uploaded_by|lower %}
-      <div class="card">
-        <div class="card-body">
-          <div>
-            <img src="{{ book.book_url}}" class="card-img-top" alt="...">
-            <h5 class="card-title text-center"><a href="#" class="card-link">{{ book.book_name}}</a></h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Author : {{ book.book_author}}</li>
-              <li class="list-group-item">Category : {{ book.category_name}}</li>
-              <li class="list-group-item">Publication Date : {{ book.book_publication_date}}</li>
-              <li class="list-group-item">Book Length : {{ book.book_length}}</li>
-            </ul>
-            <div class="card-body">
-              <p class="card-text">Description : {{ book.book_description | truncate(100, true)}}</p>
-            </div>
-            <div class="card-body">
-              <p class="card-text">Review : {{ book.book_review | truncate(100, true)}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
- 
 
   
 {% endblock %}

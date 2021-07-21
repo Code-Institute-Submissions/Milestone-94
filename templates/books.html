@@ -1,18 +1,19 @@
-<div class="card book-cards profile-cards" style="width: 18rem;">
-    {% if session.user|lower == book.uploaded_by|lower %}
-        <a class="btn btn-primary btn-sm" href="{{ url_for('delete_book', book_id=book._id) }}" role="button">Delete</a>
-        <a class="btn btn-primary btn-sm" href="{{ url_for('edit_book', book_id=book._id) }}" role="button">Edit</a>
-    {% endif %}
-    <img src="{{ book.book_url}}" class="card-img-top" alt="...">
-    <h5 class="card-title text-center"><a href="#" class="card-link">{{ book.book_name}}</a></h5>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Author : {{ book.book_author}}</li>
-        <li class="list-group-item">Category : {{ book.category_name}}</li>
-        <li class="list-group-item">Publication Date : {{ book.book_publication_date}}</li>
-        <li class="list-group-item">Book Length : {{ book.book_length}}</li>
-    </ul>
-    <div class="card-body">
-        <p class="card-text">Description : {{ book.book_description | truncate(40, true)}}</p>
+<div class="col-12 col-md-6 col-lg-4">
+    <div class="card book-cards">
+        {% if session.user|lower == book.uploaded_by|lower %}
+            <a class="btn btn-primary btn-sm" href="{{ url_for('delete_book', book_id=book._id) }}" role="button">Delete</a>
+            <a class="btn btn-primary btn-sm" href="{{ url_for('edit_book', book_id=book._id) }}" role="button">Edit</a>
+        {% endif %}
+        <img src="{{ book.book_url}}" class="img-fluid" alt="{{ book.book_name}}">
+        <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item">Title : {{ book.book_name}}</li>
+            <li class="list-group-item">Author : {{ book.book_author}}</li>
+            <li class="list-group-item">Category : {{ book.category_name}}</li>
+            <li class="list-group-item">Publication Date : {{ book.book_publication_date}}</li>
+            <li class="list-group-item">Book Length : {{ book.book_length}}</li>
+        </ul>
+        <div class="card-body">
+            <p class="card-text text-center card-description">Description : {{ book.book_description | truncate(45, true)}}</p>
+        </div>
     </div>
 </div>
-   
