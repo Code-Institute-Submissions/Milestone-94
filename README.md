@@ -8,14 +8,12 @@
 
 ### User Stories
 
-
 - As a user, I want to easily register to the site.
 - As a user, I want to easily log in to my account.
 - As a user, I want to easily log out of my account.
 - As a user, I want to easily edit or delete the books I uploaded.
 - As a user, I want to easily upload and review books.
 - As a user, I want to easily navigate around the site. 
-
 
 ### Wireframes
 
@@ -36,11 +34,11 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/).
 - with a new book link, where users can upload a new book.
 - with a logout page, when clicked logs out and takes you to the login page.
 - with a login and register link visible when the user is loged out.
+- searchbar that lets you search through already uploaded books.
 
 2.  Home page.
 
 - Displayes the newest 3 uploaded books from each category.
-
 
 3. Single_book page
 
@@ -123,7 +121,7 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/).
 
 ### Browser compatibility
 - Chrome: Responsiveness, Appearance and Functionality- Good
-- Safari: Responsiveness and Appearance and Functionality- The appearance and responsiveness is good but it does not function properly.
+- Safari: Responsiveness and Appearance and Functionality- Good
 
 ### Bugs
 
@@ -167,5 +165,5 @@ Running the project locally
 - I took a lot of inspiration from https://www.w3schools.com/.
 
 ## Acknowledgments
-- Thanks to all Code Institute staff.
-- Thanks to Slack Community.
+- Thanks to all the Code Institute staff.
+- Thanks to the Slack Community.
