@@ -48,7 +48,7 @@ def search():
     if len(books) == 0:
         flash("No Results Found")
 
-    return render_template("home.html", books=books)
+    return render_template("search.html", books=books)
 
 
 @app.route("/register", methods=["GET", "POST"])
