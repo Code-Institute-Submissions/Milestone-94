@@ -57,12 +57,6 @@
                 {{- book.book_review -}}
               </textarea>
             </div>
-            <!-- book rating -->
-            <div class="mb-3">
-              <i class=""></i>
-              <label for="book_rate" class="form-label">Rate the book!</label>
-              <input type="range" value="{{ book.book_rate }}" class="form-range" name="book_rate" id="book_rate">
-            </div>
             <!-- cancel button-->
             <a href="{{ url_for('home') }}" class="btn btn-primary">
               Cancel <i class="fas fa-times-circle right"></i>

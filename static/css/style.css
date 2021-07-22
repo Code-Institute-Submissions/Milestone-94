@@ -27,7 +27,7 @@ body {
     background-color: #d4af37 !important;
 }
 
-.book-cards, .list-group-item {
+.book-cards, .info-list {
     background-color: #4c828a;
     color: #d4af37 !important;
 }
@@ -69,4 +69,41 @@ body {
     transition: all .3s ease;
     z-index: 0;
     object-fit: cover;
+}
+
+
+.content .list-group-item {
+    font-weight: bold;
+    font-size: 1.7em;
+    justify-content: center;
+    text-decoration: none !important;
+    color: none !important;
+}
+
+.contain-info {
+    padding-top: 25px !important;
+    padding-right: 10px !important;
+}
+
+.contain-info .content .list-group-item {
+    padding-top: 20px !important;
+    background-color:#44cbe3;
+}
+
+.card-description {
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 1.4em;
+}
+
+#book-image {
+    padding-left: 20px !important;
+}
+
+#add-book {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #d4af37 !important;
+    margin-top: 20px;
+    text-decoration: none !important;
 }
