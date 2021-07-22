@@ -14,6 +14,14 @@ body {
     background-color: #4c828a !important; 
 }
 
+footer {
+    background-color: #4c828a !important;
+}
+
+footer span {
+    color: #d4af37 !important;
+}
+
 .nav-link, .dropdown-item {
     color: #d4af37 !important;
 }
