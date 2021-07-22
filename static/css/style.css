@@ -2,6 +2,10 @@ body {
     background-color:#44cbe3;
 }
 
+main {
+    min-height: calc(100vh - 150px);
+}
+
 .flashes h4 {
     line-height: 2;
 }
@@ -85,7 +89,6 @@ footer span {
     font-size: 1.7em;
     justify-content: center;
     text-decoration: none !important;
-    color: none !important;
 }
 
 .contain-info {
