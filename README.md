@@ -1,59 +1,171 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Books
 
-Welcome DaniellaMinyo,
+ On this site users can upload and review books they have read, which will show up on their profile page.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+## Live demo on Heroku pages [HERE](https://milestone-3-project-daniella-m.herokuapp.com/)
 
-## Gitpod Reminders
+## UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User Stories
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+- As a user, I want to easily register to the site.
+- As a user, I want to easily log in to my account.
+- As a user, I want to easily log out of my account.
+- As a user, I want to easily edit or delete the books I uploaded.
+- As a user, I want to easily upload and review books.
+- As a user, I want to easily navigate around the site. 
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Wireframes
 
-A blue button should appear to click: _Make Public_,
+The wireframes were made using [Balsamiq](https://balsamiq.com/).
 
-Another blue button should appear to click: _Open Browser_.
+[Wireframes](https://github.com/DaniellaMinyo/Milestone-3/blob/master/static/milestone3.pdf)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+## 2. Features
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### 2.1. Existing features
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+1.  Navbar
 
-## Updates Since The Instructional Video
+- with a brand and home link that both take you to the home page.
+- with a category dropdown menu where you can browse books by category.
+- with a profile page, which shows all the books uploaded by the user.
+- with a new book link, where users can upload a new book.
+- with a logout page, when clicked logs out and takes you to the login page.
+- with a login and register link visible when the user is loged out.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+2.  Home page.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- Displayes the newest 3 uploaded books from each category.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+3. Single_book page
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- displays the book clicked on.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+4.  Categories page
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- displays the books from the category chosen in the dropdown menu.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+5.  Profile
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- displays all the books uploaded by the user.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+6.  New book
 
----
+- upload a new book.
 
-Happy coding!
+7.  Login
+
+- login to your account.
+
+8.  Register
+
+- register to site.
+
+9. Edit and Delete buttons
+
+- buttons on books uploaded by the user.
+
+
+### 2.2. Features to implement
+
+- Wishlist
+- Review and add to profile books uploaded by others
+- Admin being able to edit and take down books uploaded by other users
+- Admin being able to add new categories.
+
+
+## Technologies Used
+
+- [GitHub](https://github.com/) - was used to host the project.
+- [Gitpod](https://www.gitpod.io/) - IDE used.
+- [Vscode](https://code.visualstudio.com/) - was used to develop the website.
+- [Balsamiq](https://balsamiq.com/) - was used to create the project's wireframes.
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) - provides the structure and content for the site.
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - provides the styling for the site.
+- [Balsamiq](https://balsamiq.com/wireframes/) - Wireframes.
+- [Js](https://en.wikipedia.org/wiki/JavaScript) - was used to add functionality.
+- [Bootstrap](https://getbootstrap.com/) - was used to create the layout for the site.
+- [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
+- [jQuery](https://jquery.com/) - JS library.
+- [MongoDB](https://www.mongodb.com/) - Database program.
+- [Heroku](https://www.heroku.com/) - for deployment and running of apps.
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Python web framework.
+
+
+## Testing
+
+## Code Validators
+
+#### [HTML validator](https://validator.w3.org/)
+-  When checked with validating by url no errors popped up.
+
+#### [CSS validator](https://jigsaw.w3.org/css-validator/)
+- One error found : 'Value Error : color none is not a color value : none', easily fixed by deleting value.
+
+#### [JS validator](https://jshint.com/)
+- No js used.
+
+### [Python validator](http://pep8online.com/)
+- a single error : continuation line with same indent as next logical line, rearranged code to solve issue.
+
+### Responsiveness
+- Galaxy S5 - Good
+- iPhone 5/6/7/8 - Good
+- iPad - Good
+- iPad Pro - Good
+- Desktop 1024px - Good
+- Desktop >1200px - Good
+
+### Browser compatibility
+- Chrome: Responsiveness, Appearance and Functionality- Good
+- Safari: Responsiveness and Appearance and Functionality- The appearance and responsiveness is good but it does not function properly.
+
+### Bugs
+
+- Issue: footer jumps up the page on some pages in certain sizes. Fix: add a min-height with calc to the main container.
+- Issue: search bar doesn't work. Fix : Created a new search.html page where search results will be shown and changed the return template in app.py.
+
+
+## Deployment
+
+###  Create Project
+- To create this project the [Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template) was used to create a new repository.
+- Then in my new repository on GitHub, I clicked the Gitpod button which built my workspace.
+
+### Deployment to Heroku
+This project is deployed and hosted on [Heroku](https://www.heroku.com/).
+- Go [Heroku](https://www.heroku.com/) and login.
+- Click on the 'New' button and select 'Create new app'.
+- Enter the app name and select a region.
+- IN'Settings' tab, click on 'Config Vars' to add Configuration Variables from the env.py file.
+- In the menu select Deploy.
+- In 'Deployment method' select GitHub to connect to your repository. Select your GitHub username and repository.
+- Select Automatic deploys from the main branch.
+- Click deploy branch.
+
+Running the project locally
+
+- First you must clone this project.
+- Under the menu click on the Code dropdown menu.
+- In the https section, copy the url.
+- In your local terminal open Git Bash.
+- Change your working directory to the one where you want to clone the directory.
+- Type in git clone and then paste in the url you copied.
+- Then just press enter.
+
+## Credits
+### Media
+- The images, decriptions, and reviews all taken from [Goodreads](https://www.goodreads.com/)
+
+### Code
+- Code used from mini project- putting it all together, to which I made modifications according to the users needs.
+- I took a lot of inspiration from https://www.w3schools.com/.
+
+## Acknowledgments
+- Thanks to all Code Institute staff.
+- Thanks to Slack Community.
